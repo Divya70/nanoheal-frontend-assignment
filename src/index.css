@@ -6,6 +6,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root{
+    --primary:#F7F7F8;
+    --secondary:#5AB2FF;
+    --navyBlue:#021526;
+    --black:#000000;
+}
 
 @tailwind base;
 @tailwind components;
