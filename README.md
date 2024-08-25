@@ -1,7 +1,7 @@
 ## Book and Author Search App
 
 ### Live Link 
-[nanoheal-frontend-assignment.vercel.app]
+[Book and Author Search App](nanoheal-frontend-assignment.vercel.app)
 
 ### About
 
