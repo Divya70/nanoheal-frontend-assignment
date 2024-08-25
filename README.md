@@ -15,14 +15,9 @@ This app is use for search the books and authors, built with React JS and NextUI
 ## How to use
 
 ### Clone the Repository
-
-##
-
 git clone https://github.com/Divya70/nanoheal-frontend-assignment.git
 
 cd projct name
-
-
 
 ## Install Package
 
