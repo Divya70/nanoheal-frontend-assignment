@@ -1,8 +1,32 @@
-# React + Vite
+## Book and Author Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### About
 
-Currently, two official plugins are available:
+This app is use for search the books and authors, built with React JS and NextUI. used the node and Express JS with Open Library API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+1. Search Bar to search the Books and Author
+2. BookList to show all the searched books
+3. Books Deatils Page to show all the detail about the book
+4. Authors List to show all the searched and get author List
+5. Authors Detals to show all the details about the author
+
+## How to use
+
+### Clone the Repository
+
+##
+
+git clone https://github.com/Divya70/nanoheal-frontend-assignment.git
+cd projct name
+
+## Install Package
+
+npm install
+
+## How to Start Server
+
+npm run dev
+
+Happy To Go, Yayyyyy....
