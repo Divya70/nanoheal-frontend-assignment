@@ -1,5 +1,8 @@
 ## Book and Author Search App
 
+### Live Link 
+[Book and Author Search App](nanoheal-frontend-assignment.vercel.app)
+
 ### About
 
 This app is use for search the books and authors, built with React JS and NextUI. used the node and Express JS with Open Library API.
@@ -15,10 +18,8 @@ This app is use for search the books and authors, built with React JS and NextUI
 ## How to use
 
 ### Clone the Repository
-
-##
-
 git clone https://github.com/Divya70/nanoheal-frontend-assignment.git
+
 cd projct name
 
 ## Install Package
