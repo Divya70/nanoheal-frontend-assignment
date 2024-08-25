@@ -2,8 +2,8 @@ import { Spinner } from "@nextui-org/react";
 
 const Loader = () => {
   return (
-    <div>
-      <Spinner label="Loading..." color="success" labelColor="success" />
+    <div className="text-center mt-3">
+      <Spinner label="Loading..." color="primary" labelColor="primary" />
     </div>
   );
 };

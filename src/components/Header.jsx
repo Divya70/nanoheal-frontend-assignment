@@ -8,10 +8,11 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   NavbarBrand,
+  Image,
 } from "@nextui-org/react";
 import { useState } from "react";
 import HeroSection from "./HeroSection";
-// import AcmeLogo from ".././assets";
+import BookLogo from "../assets/booklogo.jpg";
 const Header = () => {
   const menuItems = ["Books", "Authors"];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,41 +22,46 @@ const Header = () => {
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
+        maxWidth="full"
       >
         <NavbarContent className="sm:hidden pr-3" justify="space-between">
-          <NavbarBrand>
-            {/* <AcmeLogo /> */}
-            <p className="font-bold text-inherit">BookWorm</p>
+          <NavbarBrand className="flex gap-4">
+            <Image
+              width={30}
+              height={30}
+              alt="logo"
+              src={BookLogo}
+              className="mb-2"
+            />
+            <p className="font-bold text-inherit">BookClub</p>
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="end">
-          <NavbarBrand>
-            {/* <AcmeLogo /> */}
-            <p className="font-bold text-inherit">BookWorm</p>
+        <NavbarContent className="hidden sm:flex">
+          <NavbarBrand className="flex gap-4 ml-7">
+            <Image
+              width={60}
+              height={50}
+              alt="logo"
+              src={BookLogo}
+              className="mb-4"
+            />
+            <p className="font-bold  items-center">BookClub</p>
           </NavbarBrand>
-          <NavbarItem isActive>
-            <Link color="foreground" href="/book" aria-current="page">
-              Books
-            </Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="/author" aria-current="page" color="foreground">
-              Authors
-            </Link>
-          </NavbarItem>
+          <div className="flex gap-7 mr-7">
+            <NavbarItem isActive justify="end">
+              <Link color="foreground" href="/book" aria-current="page">
+                Books
+              </Link>
+            </NavbarItem>
+            <NavbarItem isActive>
+              <Link href="/author" aria-current="page" color="foreground">
+                Authors
+              </Link>
+            </NavbarItem>
+          </div>
         </NavbarContent>
 
-        {/* <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
         <NavbarContent className="sm:hidden" justify="end">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -65,7 +71,12 @@ const Header = () => {
         <NavbarMenu>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link className="w-full" color="foreground" href="#" size="lg">
+              <Link
+                className="w-full"
+                color="foreground"
+                href={index === 0 ? "/book" : "/author"}
+                size="lg"
+              >
                 {item}
               </Link>
             </NavbarMenuItem>

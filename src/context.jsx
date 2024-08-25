@@ -23,7 +23,6 @@ const BookProvider = ({ children }) => {
       const response = await fetch(`${BOOKS_URL}?bookName=${searchTerm}`);
       const bookData = await response.json();
       const { docs } = bookData;
-      console.log("bookData", docs);
       if (docs) {
         const newBooks = docs.slice(0, 20).map((bookSingle) => {
           const {

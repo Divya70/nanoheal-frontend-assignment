@@ -3,7 +3,6 @@ import { useImageSize } from "react-image-size";
 import { Link } from "react-router-dom";
 const AuthorCard = (author) => {
   const { id, cover_img, name, top_work, subjects, work_count } = author;
-  console.log("name", name);
 
   const [dimensions] = useImageSize(author.cover_img);
   let width = dimensions?.width;

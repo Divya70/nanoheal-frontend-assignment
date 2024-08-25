@@ -7,7 +7,6 @@ import { IoArrowBack } from "react-icons/io5";
 import { BOOK_DETAILS_URL } from "../utils/constant";
 const BookDetails = () => {
   const { bookId } = useParams();
-  console.log("id", bookId);
 
   const { loading, setLoading } = useSearch();
   const [book, setBook] = useState(null);
@@ -20,8 +19,6 @@ const BookDetails = () => {
         const response = await fetch(`${BOOK_DETAILS_URL}?bookId=${bookId}`);
         const bookDetailsData = await response.json();
         if (bookDetailsData) {
-          console.log("bookDetailsData", bookDetailsData);
-
           const {
             description,
             title,
