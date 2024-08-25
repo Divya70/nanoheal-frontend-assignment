@@ -35,12 +35,12 @@ const Header = () => {
             <p className="font-bold text-inherit">BookWorm</p>
           </NavbarBrand>
           <NavbarItem isActive>
-            <Link color="foreground" href="#" aria-current="page">
+            <Link color="foreground" href="/book" aria-current="page">
               Books
             </Link>
           </NavbarItem>
           <NavbarItem isActive>
-            <Link href="#" aria-current="page" color="foreground">
+            <Link href="/author" aria-current="page" color="foreground">
               Authors
             </Link>
           </NavbarItem>

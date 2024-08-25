@@ -4,6 +4,9 @@ import BookDetails from "./components/BookDetails";
 import Books from "./pages/Books/Books";
 import BookList from "./components/BookList";
 import Header from "./components/Header";
+import Author from "./pages/Author/Author";
+import AuthorList from "./components/AuthorList";
+import AuthorDetails from "./components/AuthorDetails";
 function App() {
   return (
     <>
@@ -12,7 +15,9 @@ function App() {
         <Route path="/" element={<Books />} />
         <Route path="/book" element={<BookList />} />
         <Route path="book/:bookId" element={<BookDetails />} />
-        {/* <Route path/> */}
+        <Route path="/author" element={<Author />} />
+        <Route path="author/authorlist" element={<AuthorList />} />
+        <Route path="/author/authorlist/:id" element={<AuthorDetails />} />
       </Routes>
     </>
   );

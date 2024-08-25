@@ -5,7 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
-import { BOOKS_URL } from "./utils/constant";
+import { AUTHOR_URL, BOOKS_URL } from "./utils/constant";
 
 const BookContext = createContext();
 // eslint-disable-next-line react/prop-types
@@ -14,12 +14,13 @@ const BookProvider = ({ children }) => {
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchResultTitle, setSearchResultTitle] = useState("");
-
+  const [authors, setAuthors] = useState([]);
+  const [authorSearchInput, setAuthorSearchInput] = useState("");
   // fetch the books data from api
   const fetchBooks = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${BOOKS_URL}${searchTerm}`);
+      const response = await fetch(`${BOOKS_URL}?bookName=${searchTerm}`);
       const bookData = await response.json();
       const { docs } = bookData;
       console.log("bookData", docs);
@@ -59,10 +60,59 @@ const BookProvider = ({ children }) => {
     }
   }, [searchTerm]);
 
+  // fetch Author Data from API
+  const getAuthors = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${AUTHOR_URL}?authorName=${authorSearchInput}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      const { docs } = data;
+      if (docs) {
+        let newAuthor = docs.map((singleAuthor) => {
+          const { key, name, top_subjects, top_work, work_count } =
+            singleAuthor;
+          return {
+            id: key,
+            name: name,
+            subjects: top_subjects,
+            top_work: top_work,
+            work_count: work_count,
+          };
+        });
+        setAuthors(newAuthor);
+        if (newAuthor.length > 1) {
+          setSearchResultTitle("Your Search Result");
+        } else {
+          setSearchResultTitle("No Search result found!");
+        }
+      } else {
+        setBook([]);
+        setSearchResultTitle("No Search result found!");
+      }
+
+      setLoading(false);
+    } catch (e) {
+      console.error(e);
+      setLoading(false);
+    }
+  }, [authorSearchInput]);
+
   //Call fetchbooks function
   useEffect(() => {
-    fetchBooks();
-  }, [searchTerm, fetchBooks]);
+    if (authorSearchInput) {
+      getAuthors();
+    } else if (searchTerm) {
+      fetchBooks();
+    }
+  }, [searchTerm, fetchBooks, authorSearchInput, getAuthors]);
 
   return (
     <BookContext.Provider
@@ -73,6 +123,9 @@ const BookProvider = ({ children }) => {
         setSearchTerm,
         searchResultTitle,
         setSearchResultTitle,
+        authorSearchInput,
+        setAuthorSearchInput,
+        authors,
       }}
     >
       {children}

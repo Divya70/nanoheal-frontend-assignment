@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 
 const Author = () => {
   return (
     <main>
-      <Header />
+      {/* <Header /> */}
       <Outlet />
     </main>
   );
